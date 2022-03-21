@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     private func generateRandomValue () -> Int {
         var num: Int
         repeat {
-            num = Int(arc4random_uniform(100))
+            num = Int(arc4random_uniform(101))
          } while num == 0
         return num
     }
