@@ -13,8 +13,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        judgmentValue = self.generateRandomValue()
-        self.judgmentValueLabel.text = String(judgmentValue)
+        generateRandomValue()
+        judgmentValueLabel.text = String(judgmentValue)
     }
 
     @IBOutlet private weak var judgmentValueLabel: UILabel!
@@ -30,15 +30,15 @@ class ViewController: UIViewController {
         }
     }
 
-    private func generateRandomValue () -> Int {
-        var num: Int
+    private func generateRandomValue () {
+
         repeat {
-            num = Int(arc4random_uniform(101))
-         } while num == 0
-        return num
+            judgmentValue = Int(arc4random_uniform(101))
+         } while judgmentValue == 0
     }
 
     private func presentAlert (message: String) {
+
         let alert = UIAlertController(title: "結果", message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "再挑戦", style: .default, handler: { _ in
             self.viewDidLoad()
