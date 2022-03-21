@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var judgmentValue: Int = 0
+    private var judgmentValue: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +17,8 @@ class ViewController: UIViewController {
         self.judgmentValueLabel.text = String(judgmentValue)
     }
 
-    @IBOutlet weak var judgmentValueLabel: UILabel!
-    @IBOutlet weak var changeSlider: UISlider!
+    @IBOutlet private weak var judgmentValueLabel: UILabel!
+    @IBOutlet private weak var changeSlider: UISlider!
 
     @IBAction private func judgeButton(_ sender: Any) {
 
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         }
     }
 
-    func generateRandomValue () -> Int {
+    private func generateRandomValue () -> Int {
         var num: Int
         repeat {
             num = Int(arc4random_uniform(100))
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         return num
     }
 
-    func presentAlert (message: String) {
+    private func presentAlert (message: String) {
         let alert = UIAlertController(title: "結果", message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "再挑戦", style: .default, handler: { _ in
             self.viewDidLoad()
