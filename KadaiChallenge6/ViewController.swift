@@ -23,18 +23,19 @@ class ViewController: UIViewController {
     @IBAction private func judgeButton(_ sender: Any) {
 
         let sliderValue = Int(changeSlider.value)
+
+        let firstLine: String
         if sliderValue == judgmentValue {
-            presentAlert(message: "当たり!\nあなたの値: \(sliderValue)です")
+            firstLine = "当たり!"
         } else {
-            presentAlert(message: "はずれ!\nあなたの値: \(sliderValue)です")
+            firstLine = "はずれ!"
         }
+        
+        presentAlert(message: "\(firstLine)\nあなたの値: \(sliderValue)です")
     }
 
     private func generateRandomValue () {
-
-        repeat {
-            judgmentValue = Int(arc4random_uniform(101))
-         } while judgmentValue == 0
+        judgmentValue = Int.random(in: 1...100)
     }
 
     private func presentAlert (message: String) {
