@@ -35,7 +35,7 @@ class ViewController: UIViewController {
 
     private func generateRandomValue () {
 
-        judgmentValue = Int.random(in: 0...100)
+        judgmentValue = Int.random(in: 1...100)
     }
 
     private func presentAlert (message: String) {
