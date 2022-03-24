@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         generateRandomValue()
-        judgmentValueLabel.text = String(judgmentValue)
     }
 
     @IBOutlet private weak var judgmentValueLabel: UILabel!
@@ -36,13 +35,14 @@ class ViewController: UIViewController {
     private func generateRandomValue () {
 
         judgmentValue = Int.random(in: 1...100)
+        judgmentValueLabel.text = String(judgmentValue)
     }
 
     private func presentAlert (message: String) {
 
         let alert = UIAlertController(title: "結果", message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "再挑戦", style: .default, handler: { _ in
-            self.viewDidLoad()
+            self.generateRandomValue()
         })
         alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
